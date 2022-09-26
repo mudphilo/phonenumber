@@ -1,4 +1,4 @@
-module github.com/mudphilo/phonenumbers
+module github.com/mudphilo/phonenumber
 
 require (
 	github.com/golang/protobuf v1.3.2
