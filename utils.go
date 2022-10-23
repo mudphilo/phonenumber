@@ -24,14 +24,14 @@ type MCCMNCData struct {
 	Msisdn     int64 `json:"msisdn"`
 }
 
-func GetISO3166ByCountryCode(country string) ISO3166 {
+func GetISO3166ByCountryCode(countryDialingCode int64) ISO3166 {
 
 	iso3166 := ISO3166{}
-	uppperCaseCountry := strings.ToUpper(country)
 
 	for _, i := range GetISO3166() {
 
-		if i.CountryCode == uppperCaseCountry {
+		dialingCode, _ := strconv.ParseInt(i.CountryCode,10,64)
+		if dialingCode == countryDialingCode {
 			iso3166 = i
 			break
 		}
@@ -39,7 +39,12 @@ func GetISO3166ByCountryCode(country string) ISO3166 {
 	return iso3166
 }
 
-func IS_E164Compliant(msisdn string) bool {
+func IsE164compliant(msisdn string) bool {
+
+	if len(msisdn) < 11 {
+
+		return false
+	}
 
 	if !strings.HasPrefix(msisdn, "+") {
 
@@ -51,13 +56,20 @@ func IS_E164Compliant(msisdn string) bool {
 
 }
 
-func GetCountry(msisdn string) (ISO3166, error) {
+func GetCountry(CountryCode int64) (ISO3166, error) {
+
+	// get country code Alpha3
+	iso := GetISO3166ByCountryCode(CountryCode)
+	return iso, nil
+}
+
+func GetCountryFromMsisdn(msisdn string) (ISO3166, error) {
 
 	match, err := regexp.MatchString(`^\+[1-9]\d{1,14}$`, msisdn)
 
 	if err != nil {
 
-		if IS_E164Compliant(msisdn) {
+		if IsE164compliant(msisdn) {
 
 			if !strings.HasPrefix(msisdn, "+") {
 
@@ -80,7 +92,7 @@ func GetCountry(msisdn string) (ISO3166, error) {
 
 	if !match {
 
-		if IS_E164Compliant(msisdn) {
+		if IsE164compliant(msisdn) {
 
 			if !strings.HasPrefix(msisdn, "+") {
 
@@ -123,7 +135,8 @@ func GetCountry(msisdn string) (ISO3166, error) {
 
 	// get country code Alpha3
 	CountryCode = strings.Replace(CountryCode, "+", "", -1)
-	iso := GetISO3166ByCountryCode(CountryCode)
+	dialingCode, _ := strconv.ParseInt(CountryCode,10,64)
+	iso := GetISO3166ByCountryCode(dialingCode)
 	return iso, nil
 
 }
@@ -134,7 +147,7 @@ func GetCountryISO(msisdn string) string {
 
 	if err != nil {
 
-		if IS_E164Compliant(msisdn) {
+		if IsE164compliant(msisdn) {
 
 			if !strings.HasPrefix(msisdn, "+") {
 
@@ -150,7 +163,7 @@ func GetCountryISO(msisdn string) string {
 
 	if !match {
 
-		if IS_E164Compliant(msisdn) {
+		if IsE164compliant(msisdn) {
 
 			if !strings.HasPrefix(msisdn, "+") {
 
@@ -167,7 +180,8 @@ func GetCountryISO(msisdn string) string {
 	// get country code Alpha3
 	CountryCode := msisdn[:4]
 	CountryCode = strings.Replace(CountryCode, "+", "", -1)
-	CountryCode = GetISO3166ByCountryCode(CountryCode).Alpha2
+	dialingCode, _ := strconv.ParseInt(CountryCode,10,64)
+	CountryCode = GetISO3166ByCountryCode(dialingCode).Alpha2
 	CountryCode = strings.ToUpper(CountryCode)
 	return CountryCode
 
@@ -240,15 +254,11 @@ func GetMNCMCCFromCountryCodeAndCarrier(countryCode, carrier string) (mcc int, m
 func GetMSISDN(msisdn string) MCCMNCData {
 
 	// get country code
-	Country, err := GetCountry(msisdn)
+	Country, err := GetCountryFromMsisdn(msisdn)
 	if err != nil {
 
 		return MCCMNCData{}
 	}
-
-	log.Printf("got CountryName %s ",Country.CountryName)
-	log.Printf("got CountryCode %s ",Country.CountryCode)
-	log.Printf("got Alpha2 %s ",Country.Alpha2)
 
 	phonenumber, err := Parse(msisdn,strings.ToUpper(Country.Alpha2))
 	if err != nil {
@@ -263,11 +273,58 @@ func GetMSISDN(msisdn string) MCCMNCData {
 		return MCCMNCData{}
 	}
 
-	log.Printf("got carrier %s ",carrier)
-	log.Printf("got carrier %s ",carrier)
+	mcc, mnc,network, err := GetMNCMCCFromIsoAndCarrier(Country.Alpha2, carrier)
+	log.Printf("%s ==> %s ",msisdn, network)
+
+	international_format := Format(phonenumber, INTERNATIONAL)
+	national_format := Format(phonenumber, NATIONAL)
+	international_format = strings.ReplaceAll(international_format," ","")
+	national_format = strings.ReplaceAll(national_format," ","")
+
+	msisdns := strings.ReplaceAll(international_format,"+","")
+	msisdns = strings.ReplaceAll(msisdns,")","")
+	msisdns = strings.ReplaceAll(msisdns,"(","")
+	msisdns = strings.ReplaceAll(msisdns,"-","")
+	msisdns = strings.ReplaceAll(msisdns,".","")
+
+	msisdnsFormat, _ := strconv.ParseInt(msisdns,10,64)
+	cc, _ := strconv.ParseInt(Country.CountryCode,10,64)
+
+	return MCCMNCData{
+		Mcc:         fmt.Sprintf("%d",mcc),
+		Mnc:         fmt.Sprintf("%d",mnc),
+		Iso:         Country.Alpha2,
+		Country:     Country.CountryName,
+		CountryCode: fmt.Sprintf("%d",cc),
+		Network:     network,
+		Msisdn: msisdnsFormat,
+	}
+}
+
+func GetMsisdnWithDialingCode(dialingCode, msisdn int64) MCCMNCData {
+
+	// get country code
+	Country, err := GetCountry(dialingCode)
+	if err != nil {
+
+		return MCCMNCData{}
+	}
+
+	phonenumber, err := Parse(fmt.Sprintf("%d",msisdn),strings.ToUpper(Country.Alpha2))
+	if err != nil {
+
+		return MCCMNCData{}
+	}
+
+	// get carrier
+	carrier, err := GetCarrierForNumber(phonenumber,"en")
+	if err != nil {
+
+		return MCCMNCData{}
+	}
 
 	mcc, mnc,network, err := GetMNCMCCFromIsoAndCarrier(Country.Alpha2, carrier)
-	log.Printf("got network %s ",network)
+	log.Printf("%d ==> %s ",msisdn,network)
 
 	international_format := Format(phonenumber, INTERNATIONAL)
 	national_format := Format(phonenumber, NATIONAL)

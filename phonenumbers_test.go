@@ -1610,20 +1610,18 @@ func TestCarrier1(t *testing.T)  {
 
 func TestCarrier(t *testing.T)  {
 
-	mnc := GetMSISDN("+233201522354")
+	mnc := GetMSISDN("233201522354")
 	js, _ := json.Marshal(mnc)
 	log.Printf("MNC ==> %s",string(js))
 
-	pn, err := Parse("0726120256","ke");
-	if err != nil {
+	mnc = GetMSISDN("0726120256")
+	js, _ = json.Marshal(mnc)
+	log.Printf("MNC ==> %s",string(js))
 
-		t.Errorf("Failed to getCarrier for the number %s", err)
-
-	} else {
-
-		log.Printf("CountryCode ==> %d",pn.CountryCode)
-		log.Printf("NationalNumber ==> %d",pn.NationalNumber)
-		log.Printf("String ==> %s",pn.String())
-		log.Printf("PreferredDomesticCarrierCode ==> %s ",pn.GetPreferredDomesticCarrierCode())
-	}
+	dc := int64(256)
+	ms := int64(756120256)
+	pn := GetMsisdnWithDialingCode(dc,ms);
+	log.Printf("%d%d ==> mcc %s mnc %s carrier %s ",dc,ms,pn.Mcc,pn.Mnc,pn.Network)
+	log.Printf("Msisdn ==> %d",pn.Msisdn)
+	log.Printf("ISO ==> %s",pn.Iso)
 }
