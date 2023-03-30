@@ -23,9 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf8687b-66ec-4d1d-8b85-b143531c41c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phonenumber.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,25 +102,9 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1238" height="205" key="GridCell.Tab.0.bottom" timestamp="1664192840662">
+    <state x="342" y="163" width="595" height="474" key="find.popup" timestamp="1677095079116">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="205" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1664192840662" />
-    <state width="1238" height="205" key="GridCell.Tab.0.center" timestamp="1664192840660">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="205" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1664192840660" />
-    <state width="1238" height="205" key="GridCell.Tab.0.left" timestamp="1664192840659">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="205" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1664192840659" />
-    <state width="1238" height="205" key="GridCell.Tab.0.right" timestamp="1664192840661">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state width="1238" height="205" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1664192840661" />
-    <state x="342" y="163" width="595" height="474" key="find.popup" timestamp="1664192915245">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="342" y="163" width="595" height="474" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1664192915245" />
+    <state x="342" y="163" width="595" height="474" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1677095079116" />
   </component>
 </project>
