@@ -80,10 +80,10 @@ func GetCountryFromMsisdn(msisdn string) (ISO3166, error) {
 
 			fmt.Printf("got error doing regex %s  \n", err.Error())
 			return ISO3166{
-				Alpha2:             "",
-				Alpha3:             "",
-				CountryCode:        "",
-				CountryName:        "",
+				Alpha2:             "KE",
+				Alpha3:             "KEN",
+				CountryCode:        "254",
+				CountryName:        "KENYA",
 				MobileBeginWith:    nil,
 				PhoneNumberLengths: nil,
 			}, err
@@ -103,10 +103,10 @@ func GetCountryFromMsisdn(msisdn string) (ISO3166, error) {
 
 			log.Printf("%s is invalid E164 number", msisdn)
 			return ISO3166{
-				Alpha2:             "",
-				Alpha3:             "",
-				CountryCode:        "",
-				CountryName:        "",
+				Alpha2:             "KE",
+				Alpha3:             "KEN",
+				CountryCode:        "254",
+				CountryName:        "KENYA",
 				MobileBeginWith:    nil,
 				PhoneNumberLengths: nil,
 			}, err
@@ -274,7 +274,6 @@ func GetMSISDN(msisdn string) MCCMNCData {
 	}
 
 	mcc, mnc,network, err := GetMNCMCCFromIsoAndCarrier(Country.Alpha2, carrier)
-	log.Printf("%s ==> %s ",msisdn, network)
 
 	international_format := Format(phonenumber, INTERNATIONAL)
 	national_format := Format(phonenumber, NATIONAL)
@@ -326,7 +325,6 @@ func GetMSISDNWithCountryCode(msisdn, countryCode string) MCCMNCData {
 	}
 
 	mcc, mnc,network, err := GetMNCMCCFromIsoAndCarrier(Country.Alpha2, carrier)
-	log.Printf("%s ==> %s ",msisdn, network)
 
 	international_format := Format(phonenumber, INTERNATIONAL)
 	national_format := Format(phonenumber, NATIONAL)
@@ -376,7 +374,6 @@ func GetMsisdnWithDialingCode(dialingCode, msisdn int64) MCCMNCData {
 	}
 
 	mcc, mnc,network, err := GetMNCMCCFromIsoAndCarrier(Country.Alpha2, carrier)
-	log.Printf("%d ==> %s ",msisdn,network)
 
 	international_format := Format(phonenumber, INTERNATIONAL)
 	national_format := Format(phonenumber, NATIONAL)
