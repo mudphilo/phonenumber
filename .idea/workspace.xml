@@ -24,6 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2bf8687b-66ec-4d1d-8b85-b143531c41c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonenumbers_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/phonenumbers_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +71,18 @@
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Test.TestCarrier in github.com/mudphilo/phonenumber">
+    <configuration name="TestCarrier in github.com/mudphilo/phonenumber" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="phonenumber" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mudphilo/phonenumber" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestCarrier\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestCarrier in github.com/mudphilo/phonenumbers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="phonenumbers" />
       <working_directory value="$PROJECT_DIR$" />
@@ -83,6 +96,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestCarrier in github.com/mudphilo/phonenumber" />
         <item itemvalue="Go Test.TestCarrier in github.com/mudphilo/phonenumbers" />
       </list>
     </recent_temporary>
@@ -110,9 +124,25 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="342" y="163" width="595" height="474" key="find.popup" timestamp="1677095079116">
+    <state width="1238" height="283" key="GridCell.Tab.0.bottom" timestamp="1689863555744">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="342" y="163" width="595" height="474" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1677095079116" />
+    <state width="1238" height="283" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1689863555744" />
+    <state width="1238" height="283" key="GridCell.Tab.0.center" timestamp="1689863555742">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="283" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1689863555742" />
+    <state width="1238" height="283" key="GridCell.Tab.0.left" timestamp="1689863555741">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="283" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1689863555741" />
+    <state width="1238" height="283" key="GridCell.Tab.0.right" timestamp="1689863555743">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state width="1238" height="283" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1689863555743" />
+    <state x="342" y="163" width="601" height="474" key="find.popup" timestamp="1688723210735">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="342" y="163" width="601" height="474" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1688723210735" />
   </component>
 </project>

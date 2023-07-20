@@ -102,6 +102,7 @@ func GetCountryFromMsisdn(msisdn string) (ISO3166, error) {
 		} else {
 
 			log.Printf("%s is invalid E164 number", msisdn)
+
 			return ISO3166{
 				Alpha2:             "KE",
 				Alpha3:             "KEN",
@@ -252,6 +253,8 @@ func GetMNCMCCFromCountryCodeAndCarrier(countryCode, carrier string) (mcc int, m
 }
 
 func GetMSISDN(msisdn string) MCCMNCData {
+
+	// harmonize phone numbers
 
 	// get country code
 	Country, err := GetCountryFromMsisdn(msisdn)
