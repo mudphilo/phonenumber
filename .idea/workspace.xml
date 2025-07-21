@@ -23,8 +23,165 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf8687b-66ec-4d1d-8b85-b143531c41c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phonenumber.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/phoneserver/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/phoneserver/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/LICENSE-LAMBDACODE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/LICENSE-SUMMARY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_ALBTargetGroupEvents.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_ApiGatewayCustomAuthorizer.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_ApiGatewayEvent.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_AppSync.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_AutoScaling.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Chime_Bots.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_CodeBuild.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_CodeCommit.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_CodeDeploy.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Cognito.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Cognito_UserPools_CustomAuthLambdaTriggers.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Cognito_UserPools_PostConfirmation.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Cognito_UserPools_PreAuthentication.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Cognito_UserPools_PreSignup.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Cognito_UserPools_PreTokenGen.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Config.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Connect.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_DynamoDB.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Kinesis.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_KinesisDataAnalytics.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_KinesisFirehose.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_Lex.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_S3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_S3_Batch_Job.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_SES.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_SNS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/README_SQS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/alb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/apigw.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/appsync.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/attributevalue.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/autoscaling.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/chime_bot.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/cloudwatch_events.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/cloudwatch_logs.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/code_commit.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/codebuild.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/codedeploy.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/codepipeline_job.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/cognito.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/connect.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/duration.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/dynamodb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/epoch_time.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/firehose.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/iot_button.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/kinesis.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/kinesis_analytics.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/lex.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/s3.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/s3_batch_job.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/ses.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/sns.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/events/sqs.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambda/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambda/entry.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambda/function.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambda/handler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambda/handlertrace/trace.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambda/messages/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambda/messages/messages.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambda/panic.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambdacontext/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/aws/aws-lambda-go/lambdacontext/context.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/CONTRIBUTORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/clone.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/decode.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/deprecated.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/discard.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/encode.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/equal.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/extensions.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/lib.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/message_set.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/pointer_reflect.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/pointer_unsafe.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/properties.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/table_marshal.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/table_merge.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/table_unmarshal.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/text.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/golang/protobuf/proto/text_parser.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/.goreleaser.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/builder.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/countrycode_to_region_bin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/insertablebuffer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/matcher.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/metadata_bin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/metadata_util.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/netlify.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/phonemetadata.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/phonemetadata.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/phonenumber.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/phonenumber.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/phonenumbers.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/phonenumbers.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/prefix_to_carriers_bin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/prefix_to_geocodings_bin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/prefix_to_timezone_bin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/github.com/nyaruka/phonenumbers/serialize.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/CONTRIBUTORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/PATENTS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/format/format.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/format/parser.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/common.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/compact.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/compact/compact.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/compact/language.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/compact/parents.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/compact/tables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/compact/tags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/compose.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/coverage.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/language.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/lookup.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/match.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/parse.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/tables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/language/tags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/internal/tag/tag.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/coverage.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/display/dict.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/display/display.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/display/lookup.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/display/tables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/doc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/go1_1.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/go1_2.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/language.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/match.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/parse.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/tables.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/golang.org/x/text/language/tags.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/vendor/modules.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/modules.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +191,7 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.3.linux-amd64" />
+  <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -62,25 +219,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.GoLinterPluginOnboarding": "true",
-    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/muthoni",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/muthoni/dev/work/github/wallet-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Go Test.TestCarrier in github.com/mudphilo/phonenumber">
     <configuration name="TestCarrier in github.com/mudphilo/phonenumber" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="phonenumber" />
