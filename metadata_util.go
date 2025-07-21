@@ -1,42 +1,22 @@
 package phonenumbers
 
-// merge merges two number formats
-func (nf *NumberFormat) merge(other *NumberFormat) {
-	if other.Pattern != nil {
-		nf.Pattern = other.Pattern
-	}
-	if other.Format != nil {
-		nf.Format = other.Format
-	}
-	for i := 0; i < len(other.LeadingDigitsPattern); i++ {
-		nf.LeadingDigitsPattern = append(nf.LeadingDigitsPattern, other.LeadingDigitsPattern[i])
-	}
-	if other.NationalPrefixFormattingRule != nil {
-		nf.NationalPrefixFormattingRule = other.NationalPrefixFormattingRule
-	}
-	if other.DomesticCarrierCodeFormattingRule != nil {
-		nf.DomesticCarrierCodeFormattingRule = other.DomesticCarrierCodeFormattingRule
-	}
-	if other.NationalPrefixOptionalWhenFormatting != nil {
-		nf.NationalPrefixOptionalWhenFormatting = other.NationalPrefixOptionalWhenFormatting
-	}
-}
+import phonenumber "github.com/mudphilo/phonenumber/phonenumbers"
 
-func (pd *PhoneNumberDesc) hasPossibleLength(length int32) bool {
-	for _, l := range pd.PossibleLength {
-		if l == length {
-			return true
-		}
+func mergeNumberFormats(dst, src *phonenumber.NumberFormat) {
+	if src.Pattern != nil {
+		dst.Pattern = src.Pattern
 	}
-
-	return false
-}
-
-func (pd *PhoneNumberDesc) hasPossibleLengthLocalOnly(length int32) bool {
-	for _, l := range pd.PossibleLengthLocalOnly {
-		if l == length {
-			return true
-		}
+	if src.Format != nil {
+		dst.Format = src.Format
 	}
-	return false
+	dst.LeadingDigitsPattern = append([]string{}, src.LeadingDigitsPattern...)
+	if src.NationalPrefixFormattingRule != nil {
+		dst.NationalPrefixFormattingRule = src.NationalPrefixFormattingRule
+	}
+	if src.DomesticCarrierCodeFormattingRule != nil {
+		dst.DomesticCarrierCodeFormattingRule = src.DomesticCarrierCodeFormattingRule
+	}
+	if src.NationalPrefixOptionalWhenFormatting != nil {
+		dst.NationalPrefixOptionalWhenFormatting = src.NationalPrefixOptionalWhenFormatting
+	}
 }

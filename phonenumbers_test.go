@@ -3,6 +3,7 @@ package phonenumbers
 import (
 	"fmt"
 	"github.com/golang/protobuf/proto"
+	phonenumber "github.com/mudphilo/phonenumber/phonenumbers"
 	"github.com/stretchr/testify/assert"
 	"log"
 	"reflect"
@@ -142,7 +143,7 @@ func TestNumberType(t *testing.T) {
 func TestRepeatedParsing(t *testing.T) {
 	phoneNumbers := []string{"+917827202781", "+910000000000", "+910800125778", "+917503257232", "+917566482842"}
 
-	number := &PhoneNumber{}
+	number := &phonenumber.PhoneNumber{}
 	for _, n := range phoneNumbers {
 		num, err := Parse(n, "IN")
 		assert.NoError(t, err, "unexpected error for input %s", n)
@@ -265,7 +266,7 @@ func TestTruncateTooLongNumber(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		num := &PhoneNumber{}
+		num := &phonenumber.PhoneNumber{}
 		num.CountryCode = proto.Int(tc.country)
 		num.NationalNumber = proto.Uint64(tc.input)
 		res := TruncateTooLongNumber(num)
@@ -333,14 +334,14 @@ func TestFormatByPattern(t *testing.T) {
 		in          string
 		region      string
 		format      PhoneNumberFormat
-		userFormats []*NumberFormat
+		userFormats []*phonenumber.NumberFormat
 		exp         string
 	}{
 		{
 			in:     "+33122334455",
 			region: "FR",
 			format: E164,
-			userFormats: []*NumberFormat{
+			userFormats: []*phonenumber.NumberFormat{
 				{
 					Pattern: s(`(\d+)`),
 					Format:  s(`$1`),
@@ -351,7 +352,7 @@ func TestFormatByPattern(t *testing.T) {
 			in:     "+442070313000",
 			region: "UK",
 			format: NATIONAL,
-			userFormats: []*NumberFormat{
+			userFormats: []*phonenumber.NumberFormat{
 				{
 					Pattern: s(`(20)(\d{4})(\d{4})`),
 					Format:  s(`$1 $2 $3`),
@@ -528,7 +529,7 @@ func TestSetItalianLeadinZerosForPhoneNumber(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		var pNum = &PhoneNumber{}
+		var pNum = &phonenumber.PhoneNumber{}
 		setItalianLeadingZerosForPhoneNumber(test.num, pNum)
 		if pNum.GetItalianLeadingZero() != test.hasLeadZero {
 			t.Errorf("[test %d:hasLeadZero] %v != %v\n",
@@ -650,7 +651,7 @@ func TestIsNumberMatchWithOneNumber(t *testing.T) {
 
 // TODO(ttacon): use the test metadata and not the normal metadata
 
-var testPhoneNumbers = map[string]*PhoneNumber{
+var testPhoneNumbers = map[string]*phonenumber.PhoneNumber{
 	"ALPHA_NUMERIC_NUMBER": newPhoneNumber(1, 80074935247),
 	"AE_UAN":               newPhoneNumber(971, 600123456),
 	"AR_MOBILE":            newPhoneNumber(54, 91187654321),
@@ -664,7 +665,7 @@ var testPhoneNumbers = map[string]*PhoneNumber{
 	"GB_MOBILE":       newPhoneNumber(44, 7912345678),
 	"GB_NUMBER":       newPhoneNumber(44, 2070313000),
 	"IT_MOBILE":       newPhoneNumber(39, 345678901),
-	"IT_NUMBER": func() *PhoneNumber {
+	"IT_NUMBER": func() *phonenumber.PhoneNumber {
 		p := newPhoneNumber(39, 236618300)
 		p.ItalianLeadingZero = proto.Bool(true)
 		return p
@@ -686,7 +687,7 @@ var testPhoneNumbers = map[string]*PhoneNumber{
 	"US_SHORT_BY_ONE_NUMBER": newPhoneNumber(1, 650253000),
 	"US_TOLLFREE":            newPhoneNumber(1, 8002530000),
 	"US_SPOOF":               newPhoneNumber(1, 0),
-	"US_SPOOF_WITH_RAW_INPUT": func() *PhoneNumber {
+	"US_SPOOF_WITH_RAW_INPUT": func() *phonenumber.PhoneNumber {
 		p := newPhoneNumber(1, 0)
 		p.RawInput = proto.String("000-000-0000")
 		return p
@@ -701,14 +702,14 @@ var testPhoneNumbers = map[string]*PhoneNumber{
 	"UNKNOWN_COUNTRY_CODE_NO_RAW_INPUT": newPhoneNumber(2, 12345),
 }
 
-func newPhoneNumber(cc int, natNum uint64) *PhoneNumber {
-	p := &PhoneNumber{}
+func newPhoneNumber(cc int, natNum uint64) *phonenumber.PhoneNumber {
+	p := &phonenumber.PhoneNumber{}
 	p.CountryCode = proto.Int(cc)
 	p.NationalNumber = proto.Uint64(natNum)
 	return p
 }
 
-func getTestNumber(alias string) *PhoneNumber {
+func getTestNumber(alias string) *phonenumber.PhoneNumber {
 	// there should never not be a valid number
 	val := testPhoneNumbers[alias]
 	return val
@@ -735,7 +736,7 @@ func TestGetMetadata(t *testing.T) {
 			cc:         1,
 			i18nPref:   "011",
 			natPref:    "1",
-			numFmtSize: 2,
+			numFmtSize: 3, // <-- updated from 2
 		}, {
 			name:       "DE",
 			id:         "DE",
@@ -1570,7 +1571,7 @@ func TestRegexCacheRead(t *testing.T) {
 
 func TestRegexCacheStrict(t *testing.T) {
 	const expectedResult = "(41) 3020-3445"
-	phoneToTest := &PhoneNumber{
+	phoneToTest := &phonenumber.PhoneNumber{
 		CountryCode:    proto.Int32(55),
 		NationalNumber: proto.Uint64(4130203445),
 	}
@@ -1580,7 +1581,7 @@ func TestRegexCacheStrict(t *testing.T) {
 	}
 	// This adds value to the regex cache that would break the following lookup if the regex-s
 	// in cache were not strict.
-	Format(&PhoneNumber{
+	Format(&phonenumber.PhoneNumber{
 		CountryCode:    proto.Int32(973),
 		NationalNumber: proto.Uint64(17112724),
 	}, NATIONAL)
@@ -1595,7 +1596,7 @@ func s(str string) *string {
 	return &str
 }
 
-func TestCarrier1(t *testing.T)  {
+func TestCarrier1(t *testing.T) {
 
 	number, err := Parse("0101663551", "KE")
 
@@ -1605,182 +1606,180 @@ func TestCarrier1(t *testing.T)  {
 		t.Errorf("Failed to getCarrier for the number %s", err)
 	} else {
 
-		log.Printf("got carrier %s ",carrier)
+		log.Printf("got carrier %s ", carrier)
 	}
 }
 
-func TestCarrier(t *testing.T)  {
+func TestCarrier(t *testing.T) {
 
 	type TestNumber struct {
-
 		Msisdn string
-		Telco string
-
+		Telco  string
 	}
 
 	var testNumbers []TestNumber
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254747",
 		Telco:  "JTL",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254763",
 		Telco:  "Finserve",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254764",
 		Telco:  "Finserve",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254765",
 		Telco:  "Finserve",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254766",
 		Telco:  "Finserve",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254110",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254111",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254100",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254101",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254102",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "25470",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "25471",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "25472",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "25473",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "25474",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "25478",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "25477",
 		Telco:  "Telkom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254750",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254751",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254752",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254753",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254754",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254755",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254756",
 		Telco:  "Airtel",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254757",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254758",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254759",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254768",
 		Telco:  "Safaricom",
 	})
 
-	testNumbers = append(testNumbers,TestNumber{
+	testNumbers = append(testNumbers, TestNumber{
 		Msisdn: "254769",
 		Telco:  "Safaricom",
 	})
 
-	for _,v := range testNumbers {
+	for _, v := range testNumbers {
 
 		pref := v.Msisdn
 
-		t.Run(fmt.Sprintf("Testing prefix %s",pref), func(t *testing.T) {
+		t.Run(fmt.Sprintf("Testing prefix %s", pref), func(t *testing.T) {
 
 			msisdn := ""
 			//25470
 			if len(pref) == 5 {
 
-				msisdn = fmt.Sprintf("%s6120256",pref)
+				msisdn = fmt.Sprintf("%s6120256", pref)
 			}
 
 			//254750
 			if len(pref) == 6 {
 
-				msisdn = fmt.Sprintf("%s120256",pref)
+				msisdn = fmt.Sprintf("%s120256", pref)
 			}
 
 			if len(msisdn) == 0 {
@@ -1791,7 +1790,7 @@ func TestCarrier(t *testing.T)  {
 			mnc := GetMSISDN(msisdn)
 
 			//log.Printf("Test %d | msisdn %d | mcc %s | mnc %s | carrier %s | expected %s",k,mnc.Msisdn,mnc.Mcc,mnc.Mnc,mnc.Network,v.Telco)
-			assert.True(t,strings.HasPrefix(strings.ToLower(mnc.Network),strings.ToLower(v.Telco)))
+			assert.True(t, strings.HasPrefix(strings.ToLower(mnc.Network), strings.ToLower(v.Telco)))
 
 		})
 

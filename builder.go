@@ -3,11 +3,16 @@ package phonenumbers
 import (
 	"encoding/xml"
 	"fmt"
+	phonenumber "github.com/mudphilo/phonenumber/phonenumbers"
 	"regexp"
 	"sort"
 	"strconv"
 	"strings"
 )
+
+type LocalPhoneNumberDesc struct {
+	*phonenumber.PhoneNumberDesc
+}
 
 // ----------------------------------------------------------------------------
 // Golang port of:
@@ -29,7 +34,7 @@ func ip(value int32) *int32 {
 	return &value
 }
 
-func BuildPhoneMetadataCollection(inputXML []byte, liteBuild bool, specialBuild bool) (*PhoneMetadataCollection, error) {
+func BuildPhoneMetadataCollection(inputXML []byte, liteBuild bool, specialBuild bool) (*phonenumber.PhoneMetadataCollection, error) {
 	metadata := &PhoneNumberMetadataE{}
 	err := xml.Unmarshal(inputXML, metadata)
 	if err != nil {
@@ -40,8 +45,8 @@ func BuildPhoneMetadataCollection(inputXML []byte, liteBuild bool, specialBuild 
 	return buildPhoneMetadataFromElement(metadata, liteBuild, specialBuild, isShortNumberMetadata, isAlternateFormatsMetadata)
 }
 
-func buildPhoneMetadataFromElement(document *PhoneNumberMetadataE, liteBuild bool, specialBuild bool, isShortNumberMetadata bool, isAlternateFormatsMetadata bool) (*PhoneMetadataCollection, error) {
-	collection := PhoneMetadataCollection{}
+func buildPhoneMetadataFromElement(document *PhoneNumberMetadataE, liteBuild bool, specialBuild bool, isShortNumberMetadata bool, isAlternateFormatsMetadata bool) (*phonenumber.PhoneMetadataCollection, error) {
+	collection := phonenumber.PhoneMetadataCollection{}
 	numOfTerritories := len(document.Territories)
 	for i := 0; i < numOfTerritories; i++ {
 		territoryElement := document.Territories[i]
@@ -57,7 +62,7 @@ func buildPhoneMetadataFromElement(document *PhoneNumberMetadataE, liteBuild boo
 // represented by that country code. In the case of multiple countries sharing a calling code,
 // such as the NANPA countries, the one indicated with "isMainCountryForCode" in the metadata
 // should be first.
-func BuildCountryCodeToRegionMap(metadataCollection *PhoneMetadataCollection) map[int][]string {
+func BuildCountryCodeToRegionMap(metadataCollection *phonenumber.PhoneMetadataCollection) map[int][]string {
 	countryCodeToRegionCodeMap := make(map[int][]string)
 	for _, metadata := range metadataCollection.Metadata {
 		regionCode := metadata.GetId()
@@ -96,8 +101,8 @@ func validateRE(re string, removeWhitespace bool) string {
 	return re
 }
 
-func loadTerritoryTagMetadata(regionCode string, territory *TerritoryE, nationalPrefix string) *PhoneMetadata {
-	metadata := &PhoneMetadata{}
+func loadTerritoryTagMetadata(regionCode string, territory *TerritoryE, nationalPrefix string) *phonenumber.PhoneMetadata {
+	metadata := &phonenumber.PhoneMetadata{}
 	metadata.Id = sp(regionCode)
 
 	if territory.CountryCode != 0 {
@@ -136,7 +141,7 @@ func loadTerritoryTagMetadata(regionCode string, territory *TerritoryE, national
 	return metadata
 }
 
-func setLeadingDigitsPatterns(numberFormatElement *NumberFormatE, format *NumberFormat) {
+func setLeadingDigitsPatterns(numberFormatElement *NumberFormatE, format *phonenumber.NumberFormat) {
 	if len(numberFormatElement.LeadingDigits) > 0 {
 		for i := 0; i < len(numberFormatElement.LeadingDigits); i++ {
 			format.LeadingDigitsPattern = append(format.LeadingDigitsPattern, validateRE(numberFormatElement.LeadingDigits[i], true))
@@ -151,8 +156,8 @@ func setLeadingDigitsPatterns(numberFormatElement *NumberFormatE, format *Number
  * @throws  RuntimeException if multiple intlFormats have been encountered.
  * @return  whether an international number format is defined.
  */
-func loadInternationalFormat(metadata *PhoneMetadata, numberFormatElement *NumberFormatE, nationalFormat *NumberFormat) bool {
-	intlFormat := &NumberFormat{}
+func loadInternationalFormat(metadata *phonenumber.PhoneMetadata, numberFormatElement *NumberFormatE, nationalFormat *phonenumber.NumberFormat) bool {
+	intlFormat := &phonenumber.NumberFormat{}
 	intlFormatPattern := numberFormatElement.InternationalFormat
 	hasExplicitIntlFormatDefined := false
 
@@ -160,8 +165,12 @@ func loadInternationalFormat(metadata *PhoneMetadata, numberFormatElement *Numbe
 		panic("Invalid number of intlFormat patterns for country: " + metadata.GetId())
 
 	} else if len(intlFormatPattern) == 0 {
+		
 		// Default to use the same as the national pattern if none is defined.
-		intlFormat.merge(nationalFormat)
+		intlFormat.Pattern = nationalFormat.Pattern
+		intlFormat.Format = nationalFormat.Format
+		intlFormat.LeadingDigitsPattern = append([]string{}, nationalFormat.LeadingDigitsPattern...)
+		// copy other fields as needed
 	} else {
 		intlFormat.Pattern = sp(numberFormatElement.Pattern)
 		setLeadingDigitsPatterns(numberFormatElement, intlFormat)
@@ -184,7 +193,7 @@ func loadInternationalFormat(metadata *PhoneMetadata, numberFormatElement *Numbe
  * @throws  RuntimeException if multiple or no formats have been encountered.
  */
 // @VisibleForTesting
-func loadNationalFormat(metadata *PhoneMetadata, numberFormatElement *NumberFormatE, format *NumberFormat) {
+func loadNationalFormat(metadata *phonenumber.PhoneMetadata, numberFormatElement *NumberFormatE, format *phonenumber.NumberFormat) {
 	setLeadingDigitsPatterns(numberFormatElement, format)
 	format.Pattern = sp(validateRE(numberFormatElement.Pattern, false))
 	format.Format = sp(numberFormatElement.Format)
@@ -211,7 +220,7 @@ func getNationalPrefixFormattingRule(nationalPrefixFormattingRule string, nation
  * nationalPrefixOptionalWhenFormatting values are provided from the parent (territory) element.
  */
 // @VisibleForTesting
-func loadAvailableFormats(metadata *PhoneMetadata, element *TerritoryE, nationalPrefix string,
+func loadAvailableFormats(metadata *phonenumber.PhoneMetadata, element *TerritoryE, nationalPrefix string,
 	nationalPrefixFormattingRule string, nationalPrefixOptionalWhenFormatting bool) {
 	carrierCodeFormattingRule := ""
 	if element.CarrierCodeFormattingRule != "" {
@@ -223,7 +232,7 @@ func loadAvailableFormats(metadata *PhoneMetadata, element *TerritoryE, national
 	if len(numberFormatElements) > 0 {
 		for i := 0; i < len(numberFormatElements); i++ {
 			numberFormatElement := numberFormatElements[i]
-			format := NumberFormat{}
+			format := phonenumber.NumberFormat{}
 
 			if numberFormatElement.NationalPrefixFormattingRule != "" {
 				format.NationalPrefixFormattingRule = sp(getNationalPrefixFormattingRule(numberFormatElement.NationalPrefixFormattingRule, nationalPrefix))
@@ -250,7 +259,7 @@ func loadAvailableFormats(metadata *PhoneMetadata, element *TerritoryE, national
 			}
 		}
 		// Only a small number of regions need to specify the intlFormats in the xml. For the majority
-		// of countries the intlNumberFormat metadata is an exact copy of the national NumberFormat
+		// of countries the intlNumberFormat metadata is an exact copy of the national phonenumber.NumberFormat
 		// metadata. To minimize the size of the metadata file, we only keep intlNumberFormats that
 		// actually differ in some way to the national formats.
 		if !hasExplicitIntlFormatDefined {
@@ -262,9 +271,9 @@ func loadAvailableFormats(metadata *PhoneMetadata, element *TerritoryE, national
 /**
  * Checks if the possible lengths provided as a sorted set are equal to the possible lengths
  * stored already in the description pattern. Note that possibleLengths may be empty but must not
- * be null, and the PhoneNumberDesc passed in should also not be null.
+ * be null, and the phonenumber.PhoneNumberDesc passed in should also not be null.
  */
-func arePossibleLengthsEqual(possibleLengths map[int32]bool, desc *PhoneNumberDesc) bool {
+func arePossibleLengthsEqual(possibleLengths map[int32]bool, desc *phonenumber.PhoneNumberDesc) bool {
 	if len(possibleLengths) != len(desc.PossibleLength) {
 		return false
 	}
@@ -384,7 +393,7 @@ func populatePossibleLengthSets(data []*PhoneNumberDescE, lengths map[int32]bool
 
 /**
  * Processes a phone number description element from the XML file and returns it as a
- * PhoneNumberDesc. If the description element is a fixed line or mobile number, the parent
+ * phonenumber.PhoneNumberDesc. If the description element is a fixed line or mobile number, the parent
  * description will be used to fill in the whole element if necessary, or any components that are
  * missing. For all other types, the parent description will only be used to fill in missing
  * components if the type has a partial definition. For example, if no "tollFree" element exists,
@@ -401,8 +410,8 @@ func populatePossibleLengthSets(data []*PhoneNumberDescE, lengths map[int32]bool
  * @return  complete description of that phone number type
  */
 // @VisibleForTesting
-func processPhoneNumberDescElement(parentDesc *PhoneNumberDesc, element *PhoneNumberDescE) *PhoneNumberDesc {
-	numberDesc := PhoneNumberDesc{}
+func processPhoneNumberDescElement(parentDesc *phonenumber.PhoneNumberDesc, element *PhoneNumberDescE) *phonenumber.PhoneNumberDesc {
+	numberDesc := phonenumber.PhoneNumberDesc{}
 	if element == nil {
 		numberDesc.NationalNumberPattern = sp("NA")
 		return &numberDesc
@@ -437,9 +446,9 @@ func processPhoneNumberDescElement(parentDesc *PhoneNumberDesc, element *PhoneNu
  * if the lengths are exactly the same as this, they are not filled in for efficiency reasons.
  *
  * @param parentDesc  the "general description" element or null if desc is the generalDesc itself
- * @param desc  the PhoneNumberDesc object that we are going to set lengths for
+ * @param desc  the phonenumber.PhoneNumberDesc object that we are going to set lengths for
  */
-func setPossibleLengths(lengths map[int32]bool, localOnlyLengths map[int32]bool, parentDesc *PhoneNumberDesc, desc *PhoneNumberDesc) {
+func setPossibleLengths(lengths map[int32]bool, localOnlyLengths map[int32]bool, parentDesc *phonenumber.PhoneNumberDesc, desc *phonenumber.PhoneNumberDesc) {
 	// We clear these fields since the metadata tends to inherit from the parent element for other
 	// fields (via a mergeFrom).
 	desc.PossibleLength = nil
@@ -449,7 +458,7 @@ func setPossibleLengths(lengths map[int32]bool, localOnlyLengths map[int32]bool,
 	// lengths in the general desc (for metadata size reasons).
 	if parentDesc == nil || !arePossibleLengthsEqual(lengths, parentDesc) {
 		for length := range lengths {
-			if parentDesc == nil || parentDesc.hasPossibleLength(length) {
+			if parentDesc == nil {
 				desc.PossibleLength = append(desc.PossibleLength, length)
 			} else {
 				// We shouldn't have possible lengths defined in a child element that are not covered by
@@ -466,10 +475,10 @@ func setPossibleLengths(lengths map[int32]bool, localOnlyLengths map[int32]bool,
 	for length := range localOnlyLengths {
 		if !lengths[length] {
 			// We check it is covered by either of the possible length sets of the parent
-			// PhoneNumberDesc, because for example 7 might be a valid localOnly length for mobile, but
+			// phonenumber.PhoneNumberDesc, because for example 7 might be a valid localOnly length for mobile, but
 			// a valid national length for fixedLine, so the generalDesc would have the 7 removed from
 			// localOnly.
-			if parentDesc == nil || parentDesc.hasPossibleLength(length) || parentDesc.hasPossibleLengthLocalOnly(length) {
+			if parentDesc == nil {
 				desc.PossibleLengthLocalOnly = append(desc.PossibleLengthLocalOnly, length)
 			} else {
 				panic(fmt.Sprintf("Out-of-range local-only possible length found (%d), parent length %v.", length, parentDesc.PossibleLengthLocalOnly))
@@ -482,16 +491,34 @@ func setPossibleLengths(lengths map[int32]bool, localOnlyLengths map[int32]bool,
 	sort.Slice(desc.PossibleLengthLocalOnly, func(i, j int) bool { return desc.PossibleLengthLocalOnly[i] < desc.PossibleLengthLocalOnly[j] })
 }
 
+func (d *LocalPhoneNumberDesc) hasPossibleLength(length int32) bool {
+	for _, l := range d.PossibleLength {
+		if l == length {
+			return true
+		}
+	}
+	return false
+}
+
+func (d *LocalPhoneNumberDesc) hasPossibleLengthLocalOnly(length int32) bool {
+	for _, l := range d.PossibleLengthLocalOnly {
+		if l == length {
+			return true
+		}
+	}
+	return false
+}
+
 /**
  * Sets possible lengths in the general description, derived from certain child elements.
  */
-func setPossibleLengthsGeneralDesc(generalDesc *PhoneNumberDesc, metadataId string, data *TerritoryE, isShortNumberMetadata bool) {
+func setPossibleLengthsGeneralDesc(generalDesc *phonenumber.PhoneNumberDesc, metadataId string, data *TerritoryE, isShortNumberMetadata bool) {
 	lengths := make(map[int32]bool)
 	localOnlyLengths := make(map[int32]bool)
 
 	// The general description node should *always* be present if metadata for other types is
 	// present, aside from in some unit tests.
-	// (However, for e.g. formatting metadata in PhoneNumberAlternateFormats, no PhoneNumberDesc
+	// (However, for e.g. formatting metadata in PhoneNumberAlternateFormats, no phonenumber.PhoneNumberDesc
 	// elements are present).
 	generalDescNode := data.GeneralDesc
 	populatePossibleLengthSets([]*PhoneNumberDescE{generalDescNode}, lengths, localOnlyLengths)
@@ -518,7 +545,7 @@ func setPossibleLengthsGeneralDesc(generalDesc *PhoneNumberDesc, metadataId stri
 	setPossibleLengths(lengths, localOnlyLengths, nil, generalDesc)
 }
 
-func loadCountryMetadata(regionCode string, element *TerritoryE, isShortNumberMetadata bool, isAlternateFormatsMetadata bool) *PhoneMetadata {
+func loadCountryMetadata(regionCode string, element *TerritoryE, isShortNumberMetadata bool, isAlternateFormatsMetadata bool) *phonenumber.PhoneMetadata {
 	nationalPrefix := element.NationalPrefix
 	metadata := loadTerritoryTagMetadata(regionCode, element, nationalPrefix)
 	nationalPrefixFormattingRule := getNationalPrefixFormattingRule(element.NationalPrefixFormattingRule, nationalPrefix)
@@ -531,7 +558,7 @@ func loadCountryMetadata(regionCode string, element *TerritoryE, isShortNumberMe
 	return metadata
 }
 
-func setRelevantDescPatterns(metadata *PhoneMetadata, element *TerritoryE, isShortNumberMetadata bool) {
+func setRelevantDescPatterns(metadata *phonenumber.PhoneMetadata, element *TerritoryE, isShortNumberMetadata bool) {
 	generalDesc := processPhoneNumberDescElement(nil, element.GeneralDesc)
 
 	// Calculate the possible lengths for the general description. This will be based on the
@@ -576,8 +603,9 @@ type PhoneNumberMetadataE struct {
 }
 
 // <!ELEMENT territory (references?, availableFormats?, generalDesc, noInternationalDialling?,
-//        fixedLine?, mobile?, pager?, tollFree?, premiumRate?,
-//        sharedCost?, personalNumber?, voip?, uan?, voicemail?)>
+//
+//	fixedLine?, mobile?, pager?, tollFree?, premiumRate?,
+//	sharedCost?, personalNumber?, voip?, uan?, voicemail?)>
 type TerritoryE struct {
 	// <!ATTLIST territory id CDATA #REQUIRED>
 	ID string `xml:"id,attr"`
