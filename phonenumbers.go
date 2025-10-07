@@ -2806,6 +2806,7 @@ func checkRegionForParsing(numberToParse, defaultRegion string) bool {
 // done separately with IsValidNumber().
 func Parse(numberToParse, defaultRegion string) (*phonenumber.PhoneNumber, error) {
 	var phoneNumber *phonenumber.PhoneNumber = &phonenumber.PhoneNumber{}
+
 	err := ParseToNumber(numberToParse, defaultRegion, phoneNumber)
 	return phoneNumber, err
 }
@@ -2892,6 +2893,7 @@ func parseHelper(
 	numberToParse, defaultRegion string,
 	keepRawInput, checkRegion bool,
 	phoneNumber *phonenumber.PhoneNumber) error {
+
 	if len(numberToParse) == 0 {
 		return ErrNotANumber
 	} else if len(numberToParse) > MAX_INPUT_STRING_LENGTH {
@@ -2949,6 +2951,7 @@ func parseHelper(
 			return err
 		}
 	}
+
 	if countryCode != 0 {
 		phoneNumberRegion := GetRegionCodeForCountryCode(countryCode)
 		if phoneNumberRegion != defaultRegion {
@@ -2963,12 +2966,16 @@ func parseHelper(
 		// the number we were given to parse.
 		normalizedNationalNumber.WriteString(normalize(nationalNumber.String()))
 		if len(defaultRegion) != 0 {
+
 			countryCode = int(regionMetadata.GetCountryCode())
 			phoneNumber.CountryCode = proto.Int(countryCode)
+
 		} else if keepRawInput {
+
 			phoneNumber.CountryCodeSource = nil
 		}
 	}
+
 	if len(normalizedNationalNumber.String()) < MIN_LENGTH_FOR_NSN {
 		return ErrTooShortNSN
 	}
@@ -2980,6 +2987,7 @@ func parseHelper(
 		potentialNationalNumber := NewBuilder(bufferCopy)
 		maybeStripNationalPrefixAndCarrierCode(
 			potentialNationalNumber, regionMetadata, carrierCode)
+
 		// We require that the NSN remaining after stripping the national
 		// prefix and carrier code be of a possible length for the region.
 		// Otherwise, we don't do the stripping, since the original number
@@ -3002,8 +3010,11 @@ func parseHelper(
 	}
 	setItalianLeadingZerosForPhoneNumber(
 		normalizedNationalNumber.String(), phoneNumber)
+
 	val, _ := strconv.ParseUint(normalizedNationalNumber.String(), 10, 64)
+
 	phoneNumber.NationalNumber = proto.Uint64(val)
+
 	return nil
 }
 

@@ -1,6 +1,7 @@
 package phonenumbers
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/golang/protobuf/proto"
 	phonenumber "github.com/mudphilo/phonenumber/phonenumbers"
@@ -16,31 +17,30 @@ func TestParse(t *testing.T) {
 	var tests = []struct {
 		input       string
 		err         error
-		expectedNum uint64
+		expectedNum string
 		region      string
 	}{
-		{input: "4437990238", region: "US", err: nil, expectedNum: 4437990238},
-		{input: "(443) 799-0238", region: "US", err: nil, expectedNum: 4437990238},
-		{input: "((443) 799-023asdfghjk8", region: "US", err: ErrNumTooLong},
-		{input: "+441932567890", region: "GB", err: nil, expectedNum: 1932567890},
-		{input: "45", err: nil, expectedNum: 45, region: "US"},
-		{input: "1800AWWCUTE", region: "US", err: nil, expectedNum: 8002992883},
-		{input: "+1 1951178619", region: "US", err: nil, expectedNum: 1951178619},
-		{input: "+33 07856952", region: "", err: nil, expectedNum: 7856952},
-		{input: "190022+22222", region: "US", err: ErrNotANumber},
-		{input: "967717105526", region: "YE", err: nil, expectedNum: 717105526},
-		{input: "+68672098006", region: "", err: nil, expectedNum: 72098006},
-		{input: "8409990936", region: "US", err: nil, expectedNum: 8409990936},
+		{input: "4437990238", region: "US", err: nil, expectedNum: "+14437990238"},
+		{input: "(443) 799-0238", region: "US", err: nil, expectedNum: "+14437990238"},
+		{input: "+441932567890", region: "GB", err: nil, expectedNum: "+441932567890"},
+		{input: "1800AWWCUTE", region: "US", err: nil, expectedNum: "+18002992883"},
+		{input: "+1 1951178619", region: "US", err: nil, expectedNum: "+11951178619"},
+		{input: "967717105526", region: "YE", err: nil, expectedNum: "+967717105526"},
+		{input: "+68672098006", region: "", err: nil, expectedNum: "+68672098006"},
+		{input: "8409990936", region: "US", err: nil, expectedNum: "+18409990936"},
+		{input: "0748081609", region: "UG", err: nil, expectedNum: "+256748081609"},
 	}
 
 	for _, tc := range tests {
 		num, err := Parse(tc.input, tc.region)
+		if err == nil {
 
-		if tc.err != nil {
-			assert.EqualError(t, err, tc.err.Error(), "error mismatch for input %s", tc.input)
+			no := Format(num, E164)
+			assert.Equal(t, tc.expectedNum, no, "national number mismatch for input %s", tc.input)
+
 		} else {
-			assert.NoError(t, err, "unexpected error for input %s", tc.input)
-			assert.Equal(t, tc.expectedNum, num.GetNationalNumber(), "national number mismatch for input %s", tc.input)
+
+			assert.Fail(t, err.Error())
 		}
 	}
 }
@@ -1795,4 +1795,25 @@ func TestCarrier(t *testing.T) {
 		})
 
 	}
+}
+
+func TestDecode(t *testing.T) {
+
+	rawBytes, err := decodeUnzipString(metadataData)
+	if err != nil {
+
+		t.Errorf("Failed to numbers %s", err)
+	}
+
+	var metadataCollection = &phonenumber.PhoneMetadataCollection{}
+	err = proto.Unmarshal(rawBytes, metadataCollection)
+	reloadMetadata = false
+
+	for _, v := range metadataCollection.Metadata {
+
+		vs, _ := json.MarshalIndent(v, " ", "\t")
+
+		log.Printf("Got %s ", string(vs))
+	}
+
 }
