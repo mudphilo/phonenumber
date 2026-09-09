@@ -1,15 +1,16 @@
-package phonenumbers
+package phonenumber
 
 import (
 	"errors"
-	fmt "fmt"
-	phonenumber "github.com/mudphilo/phonenumber/phonenumbers"
+	"fmt"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
 	"sync"
 	"unicode"
+
+	phonenumber "github.com/nyaruka/phonenumbers/v2"
 
 	"github.com/golang/protobuf/proto"
 	"golang.org/x/text/language"

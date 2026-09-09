@@ -1,8 +1,8 @@
-package phonenumbers
+package phonenumber
 
-import phonenumber "github.com/mudphilo/phonenumber/phonenumbers"
+import "github.com/nyaruka/phonenumbers/v2"
 
-func mergeNumberFormats(dst, src *phonenumber.NumberFormat) {
+func mergeNumberFormats(dst, src *phonenumbers.NumberFormat) {
 	if src.Pattern != nil {
 		dst.Pattern = src.Pattern
 	}

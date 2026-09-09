@@ -1,4 +1,4 @@
-package phonenumbers
+package phonenumber
 
 import (
 	"regexp"

@@ -13,18 +13,29 @@ github.com/davecgh/go-spew/spew
 ## explicit; go 1.9
 github.com/golang/protobuf/proto
 # github.com/mudphilo/phonenumber v0.0.0 => .
-## explicit; go 1.24.0
+## explicit; go 1.26.0
+# github.com/nyaruka/phonenumbers/v2 v2.0.11
+## explicit; go 1.25.0
+github.com/nyaruka/phonenumbers/v2
+github.com/nyaruka/phonenumbers/v2/carrier
+github.com/nyaruka/phonenumbers/v2/internal/character
+github.com/nyaruka/phonenumbers/v2/internal/prefixmapper
+github.com/nyaruka/phonenumbers/v2/internal/regexbasedmatcher
+github.com/nyaruka/phonenumbers/v2/internal/regexcache
+github.com/nyaruka/phonenumbers/v2/internal/serialize
+github.com/nyaruka/phonenumbers/v2/internal/stringbuilder
+github.com/nyaruka/phonenumbers/v2/metadata
 # github.com/pmezard/go-difflib v1.0.0
 ## explicit
 github.com/pmezard/go-difflib/difflib
-# github.com/stretchr/testify v1.7.1
-## explicit; go 1.13
-github.com/stretchr/testify/assert
-# golang.org/x/exp v0.0.0-20251002181428-27f1f14c8bb9
-## explicit; go 1.24.0
-golang.org/x/exp/maps
-# golang.org/x/text v0.3.7
+# github.com/stretchr/testify v1.11.1
 ## explicit; go 1.17
+github.com/stretchr/testify/assert
+github.com/stretchr/testify/assert/yaml
+# golang.org/x/text v0.3.7
+## explicit; go 1.25.0
+# golang.org/x/text v0.41.0
+## explicit; go 1.25.0
 golang.org/x/text/internal/format
 golang.org/x/text/internal/language
 golang.org/x/text/internal/language/compact
@@ -32,7 +43,9 @@ golang.org/x/text/internal/tag
 golang.org/x/text/language
 golang.org/x/text/language/display
 # google.golang.org/protobuf v1.36.6
-## explicit; go 1.22
+## explicit; go 1.23
+# google.golang.org/protobuf v1.36.11
+## explicit; go 1.23
 google.golang.org/protobuf/encoding/prototext
 google.golang.org/protobuf/encoding/protowire
 google.golang.org/protobuf/internal/descfmt
@@ -64,6 +77,6 @@ google.golang.org/protobuf/runtime/protoiface
 google.golang.org/protobuf/runtime/protoimpl
 google.golang.org/protobuf/types/descriptorpb
 google.golang.org/protobuf/types/gofeaturespb
-# gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+# gopkg.in/yaml.v3 v3.0.1
 ## explicit
 gopkg.in/yaml.v3

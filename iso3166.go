@@ -1,4 +1,4 @@
-package phonenumbers
+package phonenumber
 
 // ISO3166 ...
 type ISO3166 struct {

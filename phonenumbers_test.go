@@ -1,4 +1,4 @@
-package phonenumbers
+package phonenumber
 
 import (
 	"fmt"
@@ -9,7 +9,8 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	phonenumber "github.com/mudphilo/phonenumber/phonenumbers"
+	"github.com/nyaruka/phonenumbers/v2"
+
 	"github.com/stretchr/testify/assert"
 )
 
@@ -144,7 +145,7 @@ func TestNumberType(t *testing.T) {
 func TestRepeatedParsing(t *testing.T) {
 	phoneNumbers := []string{"+917827202781", "+910000000000", "+910800125778", "+917503257232", "+917566482842"}
 
-	number := &phonenumber.PhoneNumber{}
+	number := &phonenumbers.PhoneNumber{}
 	for _, n := range phoneNumbers {
 		num, err := Parse(n, "IN")
 		assert.NoError(t, err, "unexpected error for input %s", n)
@@ -268,7 +269,7 @@ func TestTruncateTooLongNumber(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		num := &phonenumber.PhoneNumber{}
+		num := &phonenumbers.PhoneNumber{}
 		num.CountryCode = proto.Int(tc.country)
 		num.NationalNumber = proto.Uint64(tc.input)
 		res := TruncateTooLongNumber(num)
@@ -280,7 +281,7 @@ func TestTruncateTooLongNumber(t *testing.T) {
 
 func TestFormat(t *testing.T) {
 	// useful link for validating against official lib:
-	// http://libphonenumber.appspot.com/phonenumberparser?number=019+3286+9755&country=GB
+	// http://libappspot.com/phonenumberparser?number=019+3286+9755&country=GB
 
 	var tests = []struct {
 		input    string
@@ -336,14 +337,14 @@ func TestFormatByPattern(t *testing.T) {
 		in          string
 		region      string
 		format      PhoneNumberFormat
-		userFormats []*phonenumber.NumberFormat
+		userFormats []*phonenumbers.NumberFormat
 		exp         string
 	}{
 		{
 			in:     "+33122334455",
 			region: "FR",
 			format: E164,
-			userFormats: []*phonenumber.NumberFormat{
+			userFormats: []*phonenumbers.NumberFormat{
 				{
 					Pattern: s(`(\d+)`),
 					Format:  s(`$1`),
@@ -354,7 +355,7 @@ func TestFormatByPattern(t *testing.T) {
 			in:     "+442070313000",
 			region: "UK",
 			format: NATIONAL,
-			userFormats: []*phonenumber.NumberFormat{
+			userFormats: []*phonenumbers.NumberFormat{
 				{
 					Pattern: s(`(20)(\d{4})(\d{4})`),
 					Format:  s(`$1 $2 $3`),
@@ -531,7 +532,7 @@ func TestSetItalianLeadinZerosForPhoneNumber(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		var pNum = &phonenumber.PhoneNumber{}
+		var pNum = &phonenumbers.PhoneNumber{}
 		setItalianLeadingZerosForPhoneNumber(test.num, pNum)
 		if pNum.GetItalianLeadingZero() != test.hasLeadZero {
 			t.Errorf("[test %d:hasLeadZero] %v != %v\n",
@@ -653,7 +654,7 @@ func TestIsNumberMatchWithOneNumber(t *testing.T) {
 
 // TODO(ttacon): use the test metadata and not the normal metadata
 
-var testPhoneNumbers = map[string]*phonenumber.PhoneNumber{
+var testPhoneNumbers = map[string]*phonenumbers.PhoneNumber{
 	"ALPHA_NUMERIC_NUMBER": newPhoneNumber(1, 80074935247),
 	"AE_UAN":               newPhoneNumber(971, 600123456),
 	"AR_MOBILE":            newPhoneNumber(54, 91187654321),
@@ -667,7 +668,7 @@ var testPhoneNumbers = map[string]*phonenumber.PhoneNumber{
 	"GB_MOBILE":       newPhoneNumber(44, 7912345678),
 	"GB_NUMBER":       newPhoneNumber(44, 2070313000),
 	"IT_MOBILE":       newPhoneNumber(39, 345678901),
-	"IT_NUMBER": func() *phonenumber.PhoneNumber {
+	"IT_NUMBER": func() *phonenumbers.PhoneNumber {
 		p := newPhoneNumber(39, 236618300)
 		p.ItalianLeadingZero = proto.Bool(true)
 		return p
@@ -689,7 +690,7 @@ var testPhoneNumbers = map[string]*phonenumber.PhoneNumber{
 	"US_SHORT_BY_ONE_NUMBER": newPhoneNumber(1, 650253000),
 	"US_TOLLFREE":            newPhoneNumber(1, 8002530000),
 	"US_SPOOF":               newPhoneNumber(1, 0),
-	"US_SPOOF_WITH_RAW_INPUT": func() *phonenumber.PhoneNumber {
+	"US_SPOOF_WITH_RAW_INPUT": func() *phonenumbers.PhoneNumber {
 		p := newPhoneNumber(1, 0)
 		p.RawInput = proto.String("000-000-0000")
 		return p
@@ -704,14 +705,14 @@ var testPhoneNumbers = map[string]*phonenumber.PhoneNumber{
 	"UNKNOWN_COUNTRY_CODE_NO_RAW_INPUT": newPhoneNumber(2, 12345),
 }
 
-func newPhoneNumber(cc int, natNum uint64) *phonenumber.PhoneNumber {
-	p := &phonenumber.PhoneNumber{}
+func newPhoneNumber(cc int, natNum uint64) *phonenumbers.PhoneNumber {
+	p := &phonenumbers.PhoneNumber{}
 	p.CountryCode = proto.Int(cc)
 	p.NationalNumber = proto.Uint64(natNum)
 	return p
 }
 
-func getTestNumber(alias string) *phonenumber.PhoneNumber {
+func getTestNumber(alias string) *phonenumbers.PhoneNumber {
 	// there should never not be a valid number
 	val := testPhoneNumbers[alias]
 	return val
@@ -1573,7 +1574,7 @@ func TestRegexCacheRead(t *testing.T) {
 
 func TestRegexCacheStrict(t *testing.T) {
 	const expectedResult = "(41) 3020-3445"
-	phoneToTest := &phonenumber.PhoneNumber{
+	phoneToTest := &phonenumbers.PhoneNumber{
 		CountryCode:    proto.Int32(55),
 		NationalNumber: proto.Uint64(4130203445),
 	}
@@ -1583,7 +1584,7 @@ func TestRegexCacheStrict(t *testing.T) {
 	}
 	// This adds value to the regex cache that would break the following lookup if the regex-s
 	// in cache were not strict.
-	Format(&phonenumber.PhoneNumber{
+	Format(&phonenumbers.PhoneNumber{
 		CountryCode:    proto.Int32(973),
 		NationalNumber: proto.Uint64(17112724),
 	}, NATIONAL)
@@ -1600,7 +1601,7 @@ func s(str string) *string {
 
 func TestCarrier1(t *testing.T) {
 
-	number, err := Parse("0790843012", "UG")
+	number, err := Parse("254100792296", "KE")
 
 	carrier, err := GetCarrierForNumber(number, "en")
 	if err != nil {
@@ -1803,10 +1804,10 @@ func TestCarrier(t *testing.T) {
 }
 func TestGetMccMnc(t *testing.T) {
 	// Test with a valid MSISDN
-	mnc := GetMSISDN("254736152510")
+	mnc := GetMSISDN("255721103189")
 
 	// Log the results
-	t.Logf("Test carrier | msisdn %d | mcc %s | mnc %s | carrier %s",
+	t.Logf("Test TestGetMccMnc | msisdn %d | mcc %s | mnc %s | carrier %s",
 		mnc.Msisdn, mnc.Mcc, mnc.Mnc, mnc.Network)
 
 	// Assertions - adjust these based on expected values for this MSISDN
@@ -1817,6 +1818,6 @@ func TestGetMccMnc(t *testing.T) {
 
 	// Specific assertions for Ugandan MTN (256783903893)
 	// Uganda country code is 256, MTN Uganda typically has MCC 641, MNC 10 or 11
-	assert.Equal(t, "639", mnc.Mcc, "Expected MCC for Kenya")
-	assert.Contains(t, []string{"3"}, mnc.Mnc, "Expected MNC for Airtel Kenya")
+	assert.Equal(t, "640", mnc.Mcc, "Expected MCC for Tanzania")
+	assert.Contains(t, []string{"4"}, mnc.Mnc, "Expected MNC for Tigo ")
 }

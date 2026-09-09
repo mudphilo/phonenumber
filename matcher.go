@@ -1,10 +1,11 @@
-package phonenumbers
+package phonenumber
 
 import (
-	phonenumber "github.com/mudphilo/phonenumber/phonenumbers"
 	"strconv"
 	"strings"
 	"unicode"
+
+	"github.com/nyaruka/phonenumbers/v2"
 )
 
 type PhoneNumberMatcher struct {
@@ -15,7 +16,7 @@ func NewPhoneNumberMatcher(seq string) *PhoneNumberMatcher {
 	return nil
 }
 
-func ContainsOnlyValidXChars(number *phonenumber.PhoneNumber, candidate string) bool {
+func ContainsOnlyValidXChars(number *phonenumbers.PhoneNumber, candidate string) bool {
 	// The characters 'x' and 'X' can be (1) a carrier code, in which
 	// case they always precede the national significant number or (2)
 	// an extension sign, in which case they always precede the extension
@@ -44,10 +45,10 @@ func ContainsOnlyValidXChars(number *phonenumber.PhoneNumber, candidate string) 
 	return true
 }
 
-func IsNationalPrefixPresentIfRequired(number *phonenumber.PhoneNumber) bool {
+func IsNationalPrefixPresentIfRequired(number *phonenumbers.PhoneNumber) bool {
 	// First, check how we deduced the country code. If it was written
 	// in international format, then the national prefix is not required.
-	if number.GetCountryCodeSource() != phonenumber.PhoneNumber_FROM_DEFAULT_COUNTRY {
+	if number.GetCountryCodeSource() != phonenumbers.PhoneNumber_FROM_DEFAULT_COUNTRY {
 		return true
 	}
 	var phoneNumberRegion = GetRegionCodeForCountryCode(int(number.GetCountryCode()))
@@ -85,7 +86,7 @@ func IsNationalPrefixPresentIfRequired(number *phonenumber.PhoneNumber) bool {
 }
 
 func ContainsMoreThanOneSlashInNationalNumber(
-	number *phonenumber.PhoneNumber,
+	number *phonenumbers.PhoneNumber,
 	candidate string) bool {
 	var firstSlash = strings.Index(candidate, "/")
 	if firstSlash < 0 {
@@ -100,8 +101,8 @@ func ContainsMoreThanOneSlashInNationalNumber(
 	}
 
 	// If the first slash is after the country calling code, this is permitted.
-	var candidateHasCountryCode = (number.GetCountryCodeSource() == phonenumber.PhoneNumber_FROM_NUMBER_WITH_PLUS_SIGN ||
-		number.GetCountryCodeSource() == phonenumber.PhoneNumber_FROM_NUMBER_WITHOUT_PLUS_SIGN)
+	var candidateHasCountryCode = (number.GetCountryCodeSource() == phonenumbers.PhoneNumber_FROM_NUMBER_WITH_PLUS_SIGN ||
+		number.GetCountryCodeSource() == phonenumbers.PhoneNumber_FROM_NUMBER_WITHOUT_PLUS_SIGN)
 	cc := strconv.Itoa(int(number.GetCountryCode()))
 	if candidateHasCountryCode &&
 		NormalizeDigitsOnly(candidate[0:firstSlash]) == cc {
@@ -112,20 +113,20 @@ func ContainsMoreThanOneSlashInNationalNumber(
 }
 
 func CheckNumberGroupingIsValid(
-	number *phonenumber.PhoneNumber,
+	number *phonenumbers.PhoneNumber,
 	candidate string,
-	fn func(*phonenumber.PhoneNumber, string, []string) bool) bool {
+	fn func(*phonenumbers.PhoneNumber, string, []string) bool) bool {
 	// TODO(ttacon): to be implemented
 	return false
 }
 
 func AllNumberGroupsRemainGrouped(
-	number *phonenumber.PhoneNumber,
+	number *phonenumbers.PhoneNumber,
 	normalizedCandidate string,
 	formattedNumberGroups []string) bool {
 
 	var fromIndex = 0
-	if number.GetCountryCodeSource() != phonenumber.PhoneNumber_FROM_DEFAULT_COUNTRY {
+	if number.GetCountryCodeSource() != phonenumbers.PhoneNumber_FROM_DEFAULT_COUNTRY {
 		// First skip the country code if the normalized candidate contained it.
 		var cc = strconv.Itoa(int(number.GetCountryCode()))
 		fromIndex = strings.Index(normalizedCandidate, cc) + len(cc)
@@ -173,7 +174,7 @@ func AllNumberGroupsRemainGrouped(
 }
 
 func AllNumberGroupsAreExactlyPresent(
-	number *phonenumber.PhoneNumber,
+	number *phonenumbers.PhoneNumber,
 	normalizedCandidate string,
 	formattedNumberGroups []string) bool {
 

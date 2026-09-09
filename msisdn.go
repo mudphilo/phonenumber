@@ -1,4 +1,4 @@
-package phonenumbers
+package phonenumber
 
 import "regexp"
 
@@ -51,11 +51,11 @@ func FormatKEMsisdn(msisdn string) string {
 
 	} else if input4 == "2547" && length == 12 {
 
-		formatedNumber = msisdn;
+		formatedNumber = msisdn
 
 	} else if input4 == "2541" && length == 12 {
 
-		formatedNumber = msisdn;
+		formatedNumber = msisdn
 
 	} else if input5 == "+2547" && length == 13 {
 

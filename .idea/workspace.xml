@@ -1,20 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb0adc56-bba0-4e1a-95c4-56ac1759ab1c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/golang.org/x/exp/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/golang.org/x/exp/PATENTS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/golang.org/x/exp/maps/maps.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder.go" beforeDir="false" afterPath="$PROJECT_DIR$/builder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/phoneserver/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/phoneserver/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/phoneserver/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/countrycode_to_region_bin.go" beforeDir="false" afterPath="$PROJECT_DIR$/countrycode_to_region_bin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.work.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.work.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/insertablebuffer.go" beforeDir="false" afterPath="$PROJECT_DIR$/insertablebuffer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iso3166.go" beforeDir="false" afterPath="$PROJECT_DIR$/iso3166.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matcher.go" beforeDir="false" afterPath="$PROJECT_DIR$/matcher.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mcc-mnc-table.go" beforeDir="false" afterPath="$PROJECT_DIR$/mcc-mnc-table.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metadata_bin.go" beforeDir="false" afterPath="$PROJECT_DIR$/metadata_bin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/metadata_util.go" beforeDir="false" afterPath="$PROJECT_DIR$/metadata_util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/msisdn.go" beforeDir="false" afterPath="$PROJECT_DIR$/msisdn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonenumber.go" beforeDir="false" afterPath="$PROJECT_DIR$/phonenumber.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phonenumbers.go" beforeDir="false" afterPath="$PROJECT_DIR$/phonenumbers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonenumbers/phonemetadata.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonenumbers/phonemetadata.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonenumbers/phonenumber.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonenumbers/phonenumber.proto" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/phonenumbers_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/phonenumbers_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prefix_to_carriers_bin.go" beforeDir="false" afterPath="$PROJECT_DIR$/prefix_to_carriers_bin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prefix_to_geocodings_bin.go" beforeDir="false" afterPath="$PROJECT_DIR$/prefix_to_geocodings_bin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prefix_to_timezone_bin.go" beforeDir="false" afterPath="$PROJECT_DIR$/prefix_to_timezone_bin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serialize.go" beforeDir="false" afterPath="$PROJECT_DIR$/serialize.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_compare.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_compare.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_compare_can_convert.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_compare_legacy.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_format.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_format.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_forward.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_forward.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_order.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertion_order.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertions.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/assertions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/http_assertions.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/assert/http_assertions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/exp/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/exp/PATENTS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/exp/maps/maps.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/CONTRIBUTORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/compact/language.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/compact/language.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/compact/tables.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/compact/tables.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/language.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/language.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/lookup.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/lookup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/parse.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/parse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/tables.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/internal/language/tables.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/display/display.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/language/display/display.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/display/lookup.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/language/display/lookup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/language/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/go1_1.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/go1_2.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/language.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/language/language.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/match.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/language/match.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/parse.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/language/parse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/text/language/tables.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/text/language/tables.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/encoding/protowire/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/encoding/protowire/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/editiondefaults/editions_defaults.binpb" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/editiondefaults/editions_defaults.binpb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/editionssupport/editions.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/editionssupport/editions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/encoding/tag/tag.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/encoding/tag/tag.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/encoding/text/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/encoding/text/decode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/filedesc/desc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/filedesc/desc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/filedesc/desc_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/filedesc/desc_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/filedesc/desc_lazy.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/filedesc/desc_lazy.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/filedesc/editions.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/filedesc/editions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/genid/api_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/genid/api_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/genid/descriptor_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/genid/descriptor_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/codec_map.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/codec_map.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/codec_message_opaque.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/codec_message_opaque.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/decode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/message_opaque.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/message_opaque.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/presence.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/presence.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/validate.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/impl/validate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/version/version.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/internal/version/version.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/proto/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/proto/decode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protodesc/desc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protodesc/desc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protodesc/desc_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protodesc/desc_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protodesc/editions.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protodesc/editions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protodesc/proto.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protodesc/proto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protoreflect/source_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/reflect/protoreflect/source_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/types/descriptorpb/descriptor.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/protobuf/types/descriptorpb/descriptor.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/gopkg.in/yaml.v3/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/gopkg.in/yaml.v3/decode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/gopkg.in/yaml.v3/parserc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/gopkg.in/yaml.v3/parserc.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/modules.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,10 +101,22 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="GOROOT" url="file:///private/var/www/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.1.darwin-amd64" />
+  <component name="GOROOT" url="file://$USER_HOME$/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.0.linux-amd64" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nderitualphie&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:mudphilo/phonenumber.git&quot;,
+    &quot;accountId&quot;: &quot;d809cbac-7a8f-4592-8172-179125fc4f5f&quot;
+  }
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -38,31 +126,103 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/bin/php" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="33kCMMrtNh5QT3lQ3ql9Ijyh7cM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Go Test.TestParse in github.com/mudphilo/phonenumber.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Go Test.TestGetMccMnc in github.com/mudphilo/phonenumber.executor&quot;: &quot;Run&quot;,
+    &quot;Go Test.TestParse in github.com/mudphilo/phonenumber.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboardingV2&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoOptimizationToolWindowEnableInLayout.v333333&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.analysis.ui.options.defaults&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/muthoni&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="GoApplicationRunConfiguration" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Test.TestGetMccMnc in github.com/mudphilo/phonenumber">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build buildmetadata/" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="phonenumber" />
+      <working_directory value="$PROJECT_DIR$/phonenumbers" />
+      <kind value="PACKAGE" />
+      <package value="github.com/nyaruka/phonenumbers/v2/cmd/buildmetadata" />
+      <directory value="$PROJECT_DIR$" />
+      <auto_managed_config_id value="$PROJECT_DIR$/phonenumbers/cmd/buildmetadata" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/mudphilo/phonenumber/cmd/phoneserver" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="phonenumber" />
+      <working_directory value="$PROJECT_DIR$/cmd/phoneserver" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mudphilo/phonenumber/cmd/phoneserver" />
+      <directory value="$PROJECT_DIR$" />
+      <auto_managed_config_id value="$PROJECT_DIR$/cmd/phoneserver" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build phoneparser/" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="phonenumber" />
+      <working_directory value="$PROJECT_DIR$/phonenumbers" />
+      <kind value="PACKAGE" />
+      <package value="github.com/nyaruka/phonenumbers/v2/cmd/phoneparser" />
+      <directory value="$PROJECT_DIR$" />
+      <auto_managed_config_id value="$PROJECT_DIR$/phonenumbers/cmd/phoneparser" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGetMccMnc in github.com/mudphilo/phonenumber" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="phonenumber" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mudphilo/phonenumber" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestGetMccMnc\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestParse in github.com/mudphilo/phonenumber" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="phonenumber" />
       <working_directory value="$PROJECT_DIR$" />
@@ -74,8 +234,19 @@
       <pattern value="^\QTestParse\E$" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="phonenumber" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestGetMccMnc in github.com/mudphilo/phonenumber" />
         <item itemvalue="Go Test.TestParse in github.com/mudphilo/phonenumber" />
       </list>
     </recent_temporary>
@@ -83,16 +254,23 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-gosdk-63c95d513abe-08e7ff217c2b-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-262.10315.160" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-GO-262.10315.160" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb0adc56-bba0-4e1a-95c4-56ac1759ab1c" name="Changes" comment="" />
+      <created>1788346160956</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788346160956</updated>
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VgoProject">
-    <settings-migrated>true</settings-migrated>
   </component>
 </project>

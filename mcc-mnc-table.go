@@ -1,4 +1,4 @@
-package phonenumbers
+package phonenumber
 
 var MNC_MCC_DATA = `
 [
@@ -11568,7 +11568,7 @@ var MNC_MCC_DATA = `
     "iso": "tz",
     "country": "Tanzania",
     "country_code": "255",
-    "network": "TIGO/MIC"
+    "network": "TIGO/MIC YAS"
   },
   {
     "mcc": "640",
