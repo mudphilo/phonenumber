@@ -1621,154 +1621,188 @@ func TestCarrier(t *testing.T) {
 	}
 
 	var testNumbers []TestNumber
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254747",
-	//	Telco:  "JTL",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254763",
-	//	Telco:  "Finserve",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254764",
-	//	Telco:  "Finserve",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254765",
-	//	Telco:  "Finserve",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254766",
-	//	Telco:  "Finserve",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254110",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254111",
-	//	Telco:  "Safaricom",
-	//})
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254747",
+		Telco:  "JTL",
+	})
 
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254100",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254101",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254102",
-	//	Telco:  "Airtel",
-	//})
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254107",
-	//	Telco:  "Airtel",
-	//})
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "25470",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "25471",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "25472",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "25473",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "25474",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "25478",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "25477",
-	//	Telco:  "Telkom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254750",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254751",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254752",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254753",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254754",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254755",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254756",
-	//	Telco:  "Airtel",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254757",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254758",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254759",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254768",
-	//	Telco:  "Safaricom",
-	//})
-	//
-	//testNumbers = append(testNumbers, TestNumber{
-	//	Msisdn: "254769",
-	//	Telco:  "Safaricom",
-	//})
+	// testNumbers = append(testNumbers, TestNumber{
+	// 	Msisdn: "254763",
+	// 	Telco:  "Finserve",
+	// })
 
+	// testNumbers = append(testNumbers, TestNumber{
+	// 	Msisdn: "254747",
+	// 	Telco:  "JTL",
+	// })
+
+	// testNumbers = append(testNumbers, TestNumber{
+	// 	Msisdn: "254763",
+	// 	Telco:  "Finserve",
+	// })
+
+	// testNumbers = append(testNumbers, TestNumber{
+	// 	Msisdn: "254764",
+	// 	Telco:  "Finserve",
+	// })
+
+	// testNumbers = append(testNumbers, TestNumber{
+	// 	Msisdn: "254765",
+	// 	Telco:  "Finserve",
+	// })
+
+	// testNumbers = append(testNumbers, TestNumber{
+	// 	Msisdn: "254766",
+	// 	Telco:  "Finserve",
+	// })
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254110",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254111",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254100",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254101",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254102",
+		Telco:  "Airtel",
+	})
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254107",
+		Telco:  "Airtel",
+	})
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25470",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25471",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25472",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25473",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25474",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25478",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25477",
+		Telco:  "Telkom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254750",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254751",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254752",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254753",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254754",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254755",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254756",
+		Telco:  "Airtel",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254757",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254758",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254759",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254768",
+		Telco:  "Safaricom",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254118",
+		Telco:  "Safaricom",
+	})
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254119",
+		Telco:  "Safaricom",
+	})
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254140",
+		Telco:  "Safaricom",
+	})
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "254180",
+		Telco:  "Safaricom",
+	})
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25570",
+		Telco:  "Yas",
+	})
+
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25572",
+		Telco:  "Vodacom",
+	})
+	testNumbers = append(testNumbers, TestNumber{
+		Msisdn: "25579",
+		Telco:  "Vodacom",
+	})
 	for _, v := range testNumbers {
 
 		pref := v.Msisdn
@@ -1804,7 +1838,7 @@ func TestCarrier(t *testing.T) {
 }
 func TestGetMccMnc(t *testing.T) {
 	// Test with a valid MSISDN
-	mnc := GetMSISDN("255721103189")
+	mnc := GetMSISDN("254140351470")
 
 	// Log the results
 	t.Logf("Test TestGetMccMnc | msisdn %d | mcc %s | mnc %s | carrier %s",
@@ -1818,6 +1852,6 @@ func TestGetMccMnc(t *testing.T) {
 
 	// Specific assertions for Ugandan MTN (256783903893)
 	// Uganda country code is 256, MTN Uganda typically has MCC 641, MNC 10 or 11
-	assert.Equal(t, "640", mnc.Mcc, "Expected MCC for Tanzania")
-	assert.Contains(t, []string{"4"}, mnc.Mnc, "Expected MNC for Tigo ")
+	assert.Equal(t, "639", mnc.Mcc, "Expected MCC for Kenya")
+	assert.Contains(t, []string{"2"}, mnc.Mnc, "Expected MNC for Tigo ")
 }
